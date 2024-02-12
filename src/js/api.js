@@ -1,7 +1,7 @@
 // /////import axios from 'axios';
-console.log('object');
 // import { createMarkupExercises } from './markup';
 // import { createMarkupExercisesSecond } from './markup';
+// import icons from '../img/symbol-defs.svg';
 
 ///////////////////////home.js
 let response = '';
@@ -70,7 +70,7 @@ function getFilters(choiceFilter = 'filter=Muscles', currentPage = 1) {
   // };
 
   listEl.addEventListener('click', onClickExercises);
-  // listEl.removeEventListener('click', onClickBtnSecond);
+  listEl.removeEventListener('click', onClickBtnSecond);
 
   currentPageSecond = 1;
   amountPageSecond = 1;
@@ -136,7 +136,8 @@ function getExercises() {
   // query = `${resource}?${filter}=${nameQuery}&page=${currentPageSecond}&limit=8`;
 
   // response = await axios.get(query);
-  query = `https://energyflow.b.goit.study/api/${resource}?${choiceFilter}&page=${currentPage}&limit=8`;
+  //query = `https://energyflow.b.goit.study/api/${resource}?${choiceFilter}&page=${currentPage}&limit=8`;
+  query = `https://energyflow.b.goit.study/api/${resource}?${filter}=${nameQuery}&page=${currentPageSecond}&limit=8`;
 
   fetch(query)
     .then(response => {
@@ -172,33 +173,6 @@ function getExercises() {
     .catch(error => {
       alert(error.message);
     });
-
-  // try {
-  //   amountPageSecond = response.data.totalPages;
-  //   amountPageEl.innerHTML = '';
-  //   amountPageSecondEl.innerHTML = '';
-  //   if (amountPageSecond > 1) {
-  //     let amountPageMarkup = '';
-
-  //     for (let i = 1; i <= amountPageSecond; i += 1) {
-  //       if (i === currentPageSecond) {
-  //         amountPageMarkup += `<button data-action=${i} class="js-exercises-countpage-btn active " type="button">${i}</button>`;
-  //       } else {
-  //         amountPageMarkup += `
-  //         <button data-action=${i} class="js-exercises-countpage-btn " type="button">${i}</button>
-  //       `;
-  //       }
-  //     }
-  //     amountPageSecondEl.innerHTML = amountPageMarkup;
-  //     amountPageSecondEl.addEventListener('click', onChangeActivePageSecond);
-  //   }
-
-  //   createMarkupExercisesSecond(response.data.results);
-
-  //   listEl.addEventListener('click', onClickBtnSecond);
-  // } catch (error) {
-  //   alert(error.message);
-  // }
 }
 
 function onClickBtnSecond(event) {
@@ -207,96 +181,116 @@ function onClickBtnSecond(event) {
     return;
   }
 
-  //getExercisesID(idExercise);
+  getExercisesID(idExercise);
 }
 
 ///////////333333333333333333////////////////////////
-// async function getExercisesID(idExercise) {
-//   axios.defaults.baseURL = 'https://energyflow.b.goit.study/api/';
+function getExercisesID(idExercise) {
+  // axios.defaults.baseURL = 'https://energyflow.b.goit.study/api/';
 
-//   let resource = 'exercises';
-//   query = `${resource}/${idExercise}`;
-//   response = await axios.get(query);
+  let resource = 'exercises';
+  // query = `${resource}/${idExercise}`;
+  //  response = await axios.get(query);
+  query = `https://energyflow.b.goit.study/api/${resource}/${idExercise}`;
 
-//   try {
-//     const modalImgEl = document.querySelector('.id-modal-img');
-//     modalImgEl.setAttribute('src', `${response.data.gifUrl}`);
-//     const modalTitleEl = document.querySelector('.id-modal-title');
-//     modalTitleEl.textContent = `${response.data.name}`;
-//     const modalRatingEl = document.querySelector('.rating-item');
-//     modalRatingEl.textContent = `${response.data.rating}`;
-//     const modalTargetEl = document.querySelector('[data-action="target"]');
-//     modalTargetEl.textContent = `${response.data.target}`;
-//     const modalWaistEl = document.querySelector('[data-action="waist"]');
-//     modalWaistEl.textContent = `${response.data.bodyPart}`;
-//     const modalEquipmentEl = document.querySelector(
-//       '[data-action="equipment"]',
-//     );
-//     modalEquipmentEl.textContent = `${response.data.equipment}`;
-//     const modalPopularEl = document.querySelector('[data-action="popular"]');
-//     modalPopularEl.textContent = `${response.data.popularity}`;
-//     const modalCaloriesEl = document.querySelector(
-//       '[data-action="burnedcalories"]',
-//     );
-//     modalCaloriesEl.textContent = `${response.data.burnedCalories} / ${response.data.time}`;
-//     const modalDescriptionEl = document.querySelector(
-//       '[data-action="description"]',
-//     );
-//     modalDescriptionEl.textContent = `${response.data.description}`;
+  fetch(query)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
+      return response.json();
+    })
+    .then(data => {
+      const modalImgEl = document.querySelector('.id-modal-img');
+      modalImgEl.setAttribute('src', `${data.gifUrl}`);
+      const modalTitleEl = document.querySelector('.id-modal-title');
+      modalTitleEl.textContent = `${data.name}`;
+      const modalRatingEl = document.querySelector('.rating-item');
+      modalRatingEl.textContent = `${data.rating}`;
+      const modalTargetEl = document.querySelector('[data-action="target"]');
+      modalTargetEl.textContent = `${data.target}`;
+      const modalWaistEl = document.querySelector('[data-action="waist"]');
+      modalWaistEl.textContent = `${data.bodyPart}`;
+      const modalEquipmentEl = document.querySelector(
+        '[data-action="equipment"]',
+      );
+      modalEquipmentEl.textContent = `${data.equipment}`;
+      const modalPopularEl = document.querySelector('[data-action="popular"]');
+      modalPopularEl.textContent = `${data.popularity}`;
+      const modalCaloriesEl = document.querySelector(
+        '[data-action="burnedcalories"]',
+      );
+      modalCaloriesEl.textContent = `${data.burnedCalories} / ${data.time}`;
+      const modalDescriptionEl = document.querySelector(
+        '[data-action="description"]',
+      );
+      modalDescriptionEl.textContent = `${data.description}`;
 
-//     const countYellowStar = Math.floor(response.data.rating);
-//     const starsEl = document.querySelectorAll('.rating-icon');
-//     for (let i = countYellowStar; i < starsEl.length; i++) {
-//       const el = starsEl[i];
-//       starsEl[i].setAttribute('href', '/img/symbol-defs.svg#icon-star-passive');
-//     }
-//     const buttonOpenModalIdEl = document.querySelector('.js-second-btn');
-//     backdropIdEl = document.querySelector('.js-backdrop-id');
-//     buttonCloseModalIdEl = document.querySelector('.js-id-modal-btn-close');
+      const countYellowStar = Math.floor(data.rating);
+      const starsEl = document.querySelectorAll('.rating-icon');
+      for (let i = countYellowStar; i < starsEl.length; i++) {
+        const el = starsEl[i];
+        starsEl[i].setAttribute(
+          'href',
+          '../img/symbol-defs.svg#icon-star-passive',
+        );
+      }
+      const buttonOpenModalIdEl = document.querySelector('.js-second-btn');
+      backdropIdEl = document.querySelector('.js-backdrop-id');
+      buttonCloseModalIdEl = document.querySelector('.js-id-modal-btn-close');
 
-//     backdropIdEl.classList.toggle('is-hidden');
+      backdropIdEl.classList.toggle('is-hidden');
 
-//     // buttonCloseModalIdEl.addEventListener('click', () =>
-//     //   backdropIdEl.classList.toggle('is-hidden'),
-//     // );
+      buttonCloseModalIdEl.addEventListener('click', onModalIdCLose);
 
-//     buttonCloseModalIdEl.addEventListener('click', onModalIdCLose);
-//     //   backdropIdEl.classList.toggle('is-hidden'),
-//     // );
+      ////////////////////////
+      const buttonAddFavoritesEl = document.querySelector(
+        '.id-button-add-favorites',
+      );
 
-//     ////////////////////////
-//     const buttonAddFavoritesEl = document.querySelector(
-//       '.id-button-add-favorites',
-//     );
+      const arrKeysStorage = [];
+      for (let i = 0; i < localStorage.length; i++) {
+        arrKeysStorage.push(localStorage.key(i));
+      }
+      console.log(arrKeysStorage);
 
-//     const arrKeysStorage = [];
-//     for (let i = 0; i < localStorage.length; i++) {
-//       arrKeysStorage.push(localStorage.key(i));
-//     }
+      buttonAddFavoritesEl.addEventListener(
+        'click',
+        onSavedFavoriteLocalStorage,
+      );
 
-//     buttonAddFavoritesEl.addEventListener('click', () => {
-//       const settings = {
-//         name: response.data.name,
-//         bodyPart: response.data.bodyPart,
-//         calories: response.data.burnedCalories,
-//         target: response.data.target,
-//       };
+      // onSavedFavoriteLocalStorage();
 
-//       if (arrKeysStorage.includes(idExercise)) {
-//         alert('This exercise already is in a favourite');
-//       } else {
-//         localStorage.setItem(idExercise, JSON.stringify(settings));
-//         alert('Exercise is successfully added to the favourite');
-//       }
-//     });
-//   } catch (error) {
-//     alert(error.message);
-//   }
-// }
+      function onSavedFavoriteLocalStorage() {
+        console.log(idExercise);
+        console.log(arrKeysStorage.includes(idExercise));
+        const settings = {
+          name: data.name,
+          bodyPart: data.bodyPart,
+          calories: data.burnedCalories,
+          target: data.target,
+        };
 
-// function onModalIdCLose() {
-//   backdropIdEl.classList.toggle('is-hidden');
-// }
+        if (arrKeysStorage.includes(idExercise)) {
+          alert('This exercise already is in a favourite');
+        } else {
+          localStorage.setItem(idExercise, JSON.stringify(settings));
+          alert('Exercise is successfully added to the favourite');
+        }
+        buttonAddFavoritesEl.removeEventListener(
+          'click',
+          onSavedFavoriteLocalStorage,
+        );
+      }
+    })
+    .catch(error => {
+      alert(error.message);
+    });
+}
+
+function onModalIdCLose() {
+  backdropIdEl.classList.toggle('is-hidden');
+}
 
 function onChangeActivePage(event) {
   for (const el of amountPageEl.children) {
@@ -364,12 +358,20 @@ function createMarkupExercises(array) {
 
   listEl.innerHTML = markup;
 
-  // export const buttonOpenModalIdEl = document.querySelector('.js-second-btn');
+  const buttonOpenModalIdEl = document.querySelector('.js-second-btn');
 }
 
 function createMarkupExercisesSecond(array) {
   let markup = '';
-
+  //   <use href="${icons}#icon-star"></use>
+  //<use href="../img/symbol-defs.svg/#icon-star"></use>;
+  //  <svg class="second-icon-star" width="18" height="18" viewBox="0 0 18 18">
+  //    <path
+  //      fill="#eea10c"
+  //      style="fill: var(--color1, #eea10c)"
+  //      d="M14.89 2.282c0.737-2.268 3.945-2.268 4.682 0l2.080 6.402c0.33 1.014 1.275 1.701 2.341 1.701h6.731c2.384 0 3.376 3.051 1.447 4.453l-5.446 3.957c-0.863 0.627-1.224 1.738-0.894 2.752l2.080 6.402c0.737 2.268-1.859 4.154-3.788 2.752l-5.446-3.957c-0.863-0.627-2.031-0.627-2.894 0l-5.446 3.957c-1.929 1.402-4.525-0.484-3.788-2.752l2.080-6.402c0.33-1.014-0.031-2.125-0.894-2.752l-5.446-3.957c-1.929-1.402-0.938-4.453 1.447-4.453h6.731c1.066 0 2.012-0.687 2.341-1.701l2.080-6.402z"
+  //    ></path>
+  //  </svg>;
   if (array.length > 0) {
     markup = array.reduce(
       (html, { rating, name, burnedCalories, bodyPart, target, _id }) =>
@@ -381,9 +383,9 @@ function createMarkupExercisesSecond(array) {
             <p class="second-workout">WORKOUT</p>
             <div class="second-flex-one">
               <p class="second-star">${rating}</p>
-              <svg width="18" height="18">
-                <use href="../img/symbol-defs.svg/#icon-star"></use>
-              </svg>
+              <svg width="18" height="18" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.04894 0.927052C6.3483 0.0057416 7.6517 0.00574088 7.95106 0.927052L8.79611 3.52786C8.92999 3.93989 9.31394 4.21885 9.74717 4.21885H12.4818C13.4505 4.21885 13.8533 5.45846 13.0696 6.02786L10.8572 7.63525C10.5067 7.8899 10.3601 8.34127 10.494 8.75329L11.339 11.3541C11.6384 12.2754 10.5839 13.0415 9.80017 12.4721L7.58779 10.8647C7.2373 10.6101 6.7627 10.6101 6.41222 10.8647L4.19983 12.4721C3.41612 13.0415 2.36164 12.2754 2.66099 11.3541L3.50604 8.75329C3.63992 8.34127 3.49326 7.8899 3.14277 7.63525L0.930391 6.02787C0.146677 5.45846 0.549452 4.21885 1.51818 4.21885H4.25283C4.68606 4.21885 5.07001 3.93989 5.20389 3.52786L6.04894 0.927052Z" fill="#EEA10C"/>
+</svg>
             </div>
           </div>
           <button type="button" class="js-second-btn" data-id=${_id}>
