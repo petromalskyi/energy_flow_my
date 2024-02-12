@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/favorites.css" />
+
+    <title>Favorites</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header-position">
+        <nav class="header-nav">
+          <a href="./index.html" class="header-logo">energy.flow</a>
+          <button class="js-open-modal" type="button">
+            <svg width="32" height="16" aria-label="switch of mobile menu">
+              <use href="/img/symbol-defs.svg#icon-header-menu-icon"></use>
+            </svg>
+          </button>
+        </nav>
+      </div>
+    </div>
+
+    <load ="/partials/quote.html" />
+
+    <load ="/partials/min110.html" />
+
+    <load ="/partials/header-modal.html" />
+
+    <section class="favorites-section container">
+      <h2 class="favorites-title">Favorites</h2>
+
+      <ul class="js-favorite-list"></ul>
+    </section>
+
+    <!-- <script src="./main.js" type="module"></script> -->
+    <script type="module" src="./js/modal.js"></script>
+    <script src="./js/favorites.js" type="module" defer></script>
+  </body>
+</html>
