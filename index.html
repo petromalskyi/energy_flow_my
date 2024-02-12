@@ -103,18 +103,179 @@
     </header>
 
     <!-- <load ="/partials/home.html" /> -->
+    <section class="home-section">
+      <div class="hero-design container">
+        <h1 class="hero-title">
+          Get <span class="hero-title-span">Body</span> in shape, Stay healthy
+        </h1>
+        <p class="hero-popular-tags">
+          Transform your physique and embrace a healthier lifestyle with our
+          comprehensive fitness and nutrition support.
+        </p>
+      </div>
+
+      <!-- <load ="/partials/quote.html" /> -->
+
+      <div class="quote-design container">
+        <div class="quote-box">
+          <div class="quote-box-box">
+            <svg class="icon" width="34" height="32" aria-label="running man">
+              <use href="/img/symbol-defs.svg#icon-icon"></use>
+            </svg>
+            <h2 class="quote-title">Quote of the day</h2>
+          </div>
+          <svg class="icon" width="28" height="28" aria-label="inverted-commas">
+            <use href="/img/symbol-defs.svg#icon-inverted-commas"></use>
+          </svg>
+        </div>
+        <p class="quote-text"></p>
+        <p class="quote-author"></p>
+      </div>
+
+      <div class="quote-img container"></div>
+
+      <div class="exercises-design container">
+        <div class="exercises-flex">
+          <h2 class="js-exercises-title">Exercises</h2>
+          <p class="js-exercises-text"></p>
+        </div>
+        <ul class="js-exercises-list-btn">
+          <li>
+            <button
+              class="exercises-btn active"
+              type="button"
+              data-action="filter=Muscles"
+              data-filter="muscles"
+            >
+              Muscles
+            </button>
+          </li>
+          <li>
+            <button
+              class="exercises-btn"
+              type="button"
+              data-action="filter=Body parts"
+              data-filter="bodypart"
+            >
+              Body parts
+            </button>
+          </li>
+          <li>
+            <button
+              class="exercises-btn"
+              type="button"
+              data-action="filter=Equipment"
+              data-filter="equipment"
+            >
+              Equipment
+            </button>
+          </li>
+        </ul>
+
+        <ul class="js-exercises-list"></ul>
+        <div class="js-exercises-countpage"></div>
+        <div class="js-exercises-second-countpage"></div>
+        <!-- <ul class="js-favorite-list"></ul> -->
+      </div>
+
+      <!-- <svg class="id-modal-icon" width="20" height="20">
+          <use class="id-modal-icon" href="/img/symbol-defs.svg#icon-x"></use>
+        </svg> -->
+
+      <div class="js-backdrop-id container is-hidden">
+        <div class="id-modal-position container">
+          <button type="button" class="js-id-modal-btn-close">X</button>
+          <img class="id-modal-img" src="" alt="side hip abduction" />
+          <h2 class="id-modal-title"></h2>
+          <div class="id-modal-line"></div>
+          <ul class="id-modal-list-rating">
+            <li class="rating-item"></li>
+            <li>
+              <svg width="18" height="18">
+                <use
+                  class="rating-icon"
+                  href="/img/symbol-defs.svg#icon-star"
+                ></use>
+              </svg>
+            </li>
+            <li>
+              <svg width="18" height="18">
+                <use
+                  class="rating-icon"
+                  href="/img/symbol-defs.svg#icon-star"
+                ></use>
+              </svg>
+            </li>
+            <li>
+              <svg width="18" height="18">
+                <use
+                  class="rating-icon"
+                  href="/img/symbol-defs.svg#icon-star"
+                ></use>
+              </svg>
+            </li>
+            <li>
+              <svg width="18" height="18">
+                <use
+                  class="rating-icon"
+                  href="/img/symbol-defs.svg#icon-star"
+                ></use>
+              </svg>
+            </li>
+            <li>
+              <svg width="18" height="18">
+                <use
+                  class="rating-icon"
+                  href="/img/symbol-defs.svg#icon-star"
+                ></use>
+              </svg>
+            </li>
+          </ul>
+          <ul class="id-modal-list">
+            <li>
+              <p class="id-modal-text">Target</p>
+              <p class="id-modal-value" data-action="target"></p>
+            </li>
+            <li>
+              <p class="id-modal-text">Body Part</p>
+              <p class="id-modal-value" data-action="waist"></p>
+            </li>
+            <li>
+              <p class="id-modal-text">Equipment</p>
+              <p class="id-modal-value" data-action="equipment"></p>
+            </li>
+            <li>
+              <p class="id-modal-text">Popular</p>
+              <p class="id-modal-value" data-action="popular"></p>
+            </li>
+          </ul>
+          <p class="id-modal-text">Burned Calories</p>
+          <p class="id-modal-value margin" data-action="burnedcalories">
+            323/3 min
+          </p>
+          <div class="id-modal-line"></div>
+          <p class="id-modal-text" data-action="description"></p>
+          <button type="button" class="id-button-add-favorites">
+            Add to favorites
+          </button>
+          <button type="button" class="id-button-giv-rating">
+            Give a rating
+          </button>
+        </div>
+      </div>
+    </section>
+
     <!-- <load ="/partials/min110.html" /> -->
     <!-- <load ="/partials/footer.html" /> -->
 
     <!-- <load ="/partials/favorites.html" /> -->
 
-    <!-- <script src="./main.js" type="module"></script> -->
+    <!-- <script type="module" src="./src/js/modal.js"></script> -->
 
-    <script type="module" src="./src/js/modal.js"></script>
+    <script type="module" src="./src/js/home.js"></script>
+    <script type="module" src="./src/js/api.js"></script>
 
-    <!-- <script type="module" src="./js/home.js"></script> -->
-    <!-- <script type="module" src="./js/api.js"></script> -->
-    <!-- <script type="module" src="./js/footer.js"></script> -->
-    <!-- <script type="module" src="./js/favorites.js"></script> -->
+    <!-- <script type="module" src="./src/js/footer.js"></script> -->
+    <!-- <script type="module" src="./src/js/favorites.js"></script> -->
   </body>
 </html>

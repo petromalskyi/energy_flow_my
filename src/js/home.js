@@ -1,4 +1,4 @@
-import axios from 'axios';
+// ////import axios from 'axios';
 
 // const buttonAddFavoritesEl = document.querySelector('.id-button-add-favorites');
 // console.log(buttonAddFavoritesEl);
@@ -43,8 +43,8 @@ import axios from 'axios';
 const quoteTextEl = document.querySelector('.quote-text');
 const quoteAuthorEl = document.querySelector('.quote-author');
 
-export async function getQuote() {
-  axios.defaults.baseURL = 'https://energyflow.b.goit.study/api/quote';
+export function getQuote() {
+  // axios.defaults.baseURL = 'https://energyflow.b.goit.study/api/quote';
 
   const date = new Date();
   const currentDate =
@@ -59,19 +59,26 @@ export async function getQuote() {
     !localStorage.getItem('quotation') ||
     currentDate !== objLocalStorage.date
   ) {
-    const response = await axios.get();
-    try {
-      quoteTextEl.textContent = response.data.quote;
-      quoteAuthorEl.textContent = response.data.author;
-      const settings = {
-        date: currentDate,
-        quote: response.data.quote,
-        author: response.data.author,
-      };
-      localStorage.setItem('quotation', JSON.stringify(settings));
-    } catch (error) {
-      alert(error.message);
-    }
+    fetch('https://energyflow.b.goit.study/api/quote')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(response.status);
+        }
+        return response.json();
+      })
+      .then(data => {
+        quoteTextEl.textContent = data.quote;
+        quoteAuthorEl.textContent = data.author;
+        const settings = {
+          date: currentDate,
+          quote: data.quote,
+          author: data.author,
+        };
+        localStorage.setItem('quotation', JSON.stringify(settings));
+      })
+      .catch(error => {
+        alert(error.message);
+      });
   } else {
     quoteTextEl.textContent = objLocalStorage.quote;
     quoteAuthorEl.textContent = objLocalStorage.author;
