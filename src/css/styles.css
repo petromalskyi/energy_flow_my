@@ -744,8 +744,9 @@ body {
   line-height: 1.5;
   color: #1b1b1b;
 }
-.rating-icon {
+.js-rating-icon {
   fill: rgba(27, 27, 27, 0.2);
+  color: gray;
 }
 
 .id-modal-line {

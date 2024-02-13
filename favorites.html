@@ -13,8 +13,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css"
     />
-    <link rel="stylesheet" href="./css/styles.css" />
-    <link rel="stylesheet" href="./css/favorites.css" />
+    <link rel="stylesheet" href="./src/css/styles.css" />
+    <link rel="stylesheet" href="./src/css/favorites.css" />
 
     <title>Favorites</title>
   </head>
@@ -25,18 +25,35 @@
           <a href="./index.html" class="header-logo">energy.flow</a>
           <button class="js-open-modal" type="button">
             <svg width="32" height="16" aria-label="switch of mobile menu">
-              <use href="/img/symbol-defs.svg#icon-header-menu-icon"></use>
+              <use href="./src/img/symbol-defs.svg#icon-header-menu-icon"></use>
             </svg>
           </button>
         </nav>
       </div>
     </div>
 
-    <load ="/partials/quote.html" />
+    <!-- <load ="/partials/quote.html" /> -->
+    <div class="quote-design container">
+      <div class="quote-box">
+        <div class="quote-box-box">
+          <svg class="icon" width="34" height="32" aria-label="running man">
+            <use href="/img/symbol-defs.svg#icon-icon"></use>
+          </svg>
+          <h2 class="quote-title">Quote of the day</h2>
+        </div>
+        <svg class="icon" width="28" height="28" aria-label="inverted-commas">
+          <use href="/img/symbol-defs.svg#icon-inverted-commas"></use>
+        </svg>
+      </div>
+      <p class="quote-text"></p>
+      <p class="quote-author"></p>
+    </div>
 
-    <load ="/partials/min110.html" />
+    <div class="quote-img container"></div>
 
-    <load ="/partials/header-modal.html" />
+    <!-- <load ="/partials/min110.html" /> -->
+
+    <!-- <load ="/partials/header-modal.html" /> -->
 
     <section class="favorites-section container">
       <h2 class="favorites-title">Favorites</h2>
@@ -44,8 +61,65 @@
       <ul class="js-favorite-list"></ul>
     </section>
 
+    <!-- МОДАЛЬНЕ ВІКНО headermodal -->
+    <!-- <load ="/partials/header-modal.html" /> -->
+    <div class="header-backdrop is-hidden">
+      <div class="container header-modal">
+        <div class="modal-position">
+          <a href="./index.html" class="header-logo inverse">energy.flow</a>
+          <button type="button" class="js-close-modal">
+            <svg width="20" height="20">
+              <use href="./src/img/symbol-defs.svg#icon-x"></use>
+            </svg>
+          </button>
+        </div>
+
+        <div class="header-modal-menu">
+          <a href="./index.html" class="header-modal-menu-btn">Home</a>
+          <a href="./favorites.html" class="header-modal-menu-btn active"
+            >Favorites</a
+          >
+        </div>
+
+        <!-- <load ="/partials/social-links.html" /> -->
+        <ul class="social-links">
+          <li class="social-item">
+            <a
+              class="social-link"
+              href="https://www.facebook.com/goITclub/"
+              target="_blank"
+            >
+              <svg class="social-icon">
+                <use href="./src/img/symbol-defs.svg#icon-facebook"></use></svg
+            ></a>
+          </li>
+          <li class="social-item">
+            <a
+              class="social-link"
+              href=" https://www.youtube.com/c/GoIT"
+              target="_blank"
+            >
+              <svg class="social-icon">
+                <use href="./src/img/symbol-defs.svg#icon-youtube"></use></svg
+            ></a>
+          </li>
+          <li class="social-item">
+            <a
+              class="social-link"
+              href="https://www.instagram.com/goitclub/"
+              target="_blank"
+            >
+              <svg class="social-icon">
+                <use href="./src/img/symbol-defs.svg#icon-instagram"></use></svg
+            ></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
     <!-- <script src="./main.js" type="module"></script> -->
-    <script type="module" src="./js/modal.js"></script>
-    <script src="./js/favorites.js" type="module" defer></script>
+    <script type="module" src="./src/js/modal.js"></script>
+    <script type="module" src="./src/js/home.js"></script>
+    <script src="./src/js/favorites.js" type="module"></script>
   </body>
 </html>

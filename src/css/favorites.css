@@ -1,36 +1,100 @@
-/* .header-nav {
-    margin-bottom: 20px;
+.header-nav {
+  margin-bottom: 20px;
 }
 
-.favorites-section{
-    width: 100%;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background: #e8e8e8;
-    border-radius: 30px;
+.favorites-section {
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background: #e8e8e8;
+  border-radius: 30px;
 }
 
 .favorites-title {
-    margin-bottom: 20px;
-        font-size: 32px;
-        line-height: 1;
-        letter-spacing: -0.02em;
-        color: #1b1b1b;
+  margin-bottom: 20px;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #1b1b1b;
 }
 .second-item {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .js-favorite-btn {
- padding: 8px;
- font-family: inherit;
- color: #1b1b1b;
- font-size: 14px;
- line-height: 1.29;
- border: none;
- background: transparent;
+  padding: 8px;
+  font-family: inherit;
+  color: #1b1b1b;
+  font-size: 14px;
+  line-height: 1.29;
+  border: none;
+  background: transparent;
 }
 
 .js-favorite-list {
-    padding: 0;
+  padding: 0;
+}
+
+/* ///////////////////// */
+
+/* .quote-design {
+  width: 100%;
+  padding-top: 42px;
+  padding-bottom: 40px;
+  border-radius: 30px;
+  background: #7e847f;
+}
+
+.quote-box {
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quote-box-box {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.quote-title {
+  color: #f6f6f6;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.quote-text {
+  margin-bottom: 14px;
+  padding-left: 44px;
+  color: rgba(246, 246, 246, 0.6);
+  font-size: 14px;
+  line-height: 1.29;
+}
+
+.quote-author {
+  padding-left: 44px;
+  color: #f6f6f6;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.quote-img {
+  margin-bottom: 20px;
+  width: 100%;
+  height: 272px;
+  border-radius: 30px;
+
+  background-image: url(../img/rectangle-mobile-1x.png);
+  content: '';
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@media (min-resolution: 192dpi) {
+  .quote-img {
+    background-image: url(../img/rectangle-mobile-2x.png);
+  }
 } */
