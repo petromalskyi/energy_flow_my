@@ -11,7 +11,8 @@ let currentPageSecond = 1;
 let amountPageSecond = 1;
 let nameQuery = '';
 
-let backdropIdEl = '';
+// let backdropIdEl = '';
+const backdropIdEl = document.querySelector('.js-backdrop-id');
 let buttonCloseModalIdEl = '';
 
 const btnFiltersEl = document.querySelector('.js-exercises-list-btn');
@@ -199,33 +200,9 @@ function getExercisesID(idExercise) {
       return response.json();
     })
     .then(data => {
-      const modalImgEl = document.querySelector('.id-modal-img');
-      modalImgEl.setAttribute('src', `${data.gifUrl}`);
-      const modalTitleEl = document.querySelector('.id-modal-title');
-      modalTitleEl.textContent = `${data.name}`;
-      const modalRatingEl = document.querySelector('.rating-item');
-      modalRatingEl.textContent = `${data.rating}`;
-      const modalTargetEl = document.querySelector('[data-action="target"]');
-      modalTargetEl.textContent = `${data.target}`;
-      const modalWaistEl = document.querySelector('[data-action="waist"]');
-      modalWaistEl.textContent = `${data.bodyPart}`;
-      const modalEquipmentEl = document.querySelector(
-        '[data-action="equipment"]',
-      );
-      modalEquipmentEl.textContent = `${data.equipment}`;
-      const modalPopularEl = document.querySelector('[data-action="popular"]');
-      modalPopularEl.textContent = `${data.popularity}`;
-      const modalCaloriesEl = document.querySelector(
-        '[data-action="burnedcalories"]',
-      );
-      modalCaloriesEl.textContent = `${data.burnedCalories} / ${data.time}`;
-      const modalDescriptionEl = document.querySelector(
-        '[data-action="description"]',
-      );
-      modalDescriptionEl.textContent = `${data.description}`;
+      createMarkupIdModal(data);
 
       const countYellowStar = Math.floor(data.rating);
-      console.log(countYellowStar);
       const starsEl = document.querySelectorAll('.js-rating-icon');
       // starsEl.forEach(el =>
       //   el.setAttribute('href', '../img/symbol-defs.svg#icon-star'),
@@ -234,11 +211,11 @@ function getExercisesID(idExercise) {
       for (let i = countYellowStar; i < starsEl.length; i++) {
         starsEl[i].setAttribute(
           'href',
-          '../img/symbol-defs.svg#icon-star-passive',
+          '.src/img/symbol-defs.svg#icon-star-passive',
         );
       }
-      // const buttonOpenModalIdEl = document.querySelector('.js-second-btn');
-      backdropIdEl = document.querySelector('.js-backdrop-id');
+
+      //// const buttonOpenModalIdEl = document.querySelector('.js-second-btn');
       buttonCloseModalIdEl = document.querySelector('.js-id-modal-btn-close');
 
       backdropIdEl.classList.toggle('is-hidden');
@@ -316,6 +293,96 @@ function onChangeActivePageSecond(event) {
   currentPageSecond = Number(event.target.dataset.action);
   console.log('currentPageSecond', currentPageSecond);
   getExercises();
+}
+
+function createMarkupIdModal(data) {
+  let markup = `
+        <div class="id-modal-position container">
+        <button type="button" class="js-id-modal-btn-close">
+          <svg  width="24" height="24">
+            <use  href="./src/img/symbol-defs.svg#icon-x-black"></use>
+          </svg>
+        </button>
+        <img class="id-modal-img" src="${data.gifUrl}" alt="side hip abduction" />
+        <h2 class="id-modal-title">${data.name}</h2>
+        <div class="id-modal-line"></div>
+        <ul class="id-modal-list-rating">
+          <li class="rating-item">${data.rating}</li>
+          <li>
+            <svg width="18" height="18">
+              <use
+                class="js-rating-icon"
+                href="./src/img/symbol-defs.svg#icon-star"
+              ></use>
+            </svg>
+          </li>
+          <li>
+            <svg width="18" height="18">
+              <use
+                class="js-rating-icon"
+                href="./src/img/symbol-defs.svg#icon-star"
+              ></use>
+            </svg>
+          </li>
+          <li>
+            <svg width="18" height="18">
+              <use
+                class="js-rating-icon"
+                href="./src/img/symbol-defs.svg#icon-star"
+              ></use>
+            </svg>
+          </li>
+          <li>
+            <svg width="18" height="18">
+              <use
+                class="js-rating-icon"
+                href="./src/img/symbol-defs.svg#icon-star"
+              ></use>
+            </svg>
+          </li>
+          <li>
+            <svg width="18" height="18">
+              <use
+                class="js-rating-icon"
+                href="./src/img/symbol-defs.svg#icon-star"
+              ></use>
+            </svg>
+          </li>
+        </ul>
+        <ul class="id-modal-list">
+          <li>
+            <p class="id-modal-text">Target</p>
+            <p class="id-modal-value" data-action="target">${data.target}</p>
+          </li>
+          <li>
+            <p class="id-modal-text">Body Part</p>
+            <p class="id-modal-value" data-action="waist">${data.bodyPart}</p>
+          </li>
+          <li>
+            <p class="id-modal-text">Equipment</p>
+            <p class="id-modal-value" data-action="equipment">${data.equipment}</p>
+          </li>
+          <li>
+            <p class="id-modal-text">Popular</p>
+            <p class="id-modal-value" data-action="popular">${data.popularity}</p>
+          </li>
+        </ul>
+        <p class="id-modal-text">Burned Calories</p>
+        <p class="id-modal-value margin" data-action="burnedcalories">
+          ${data.burnedCalories} / ${data.time}
+        </p>
+        <div class="id-modal-line"></div>
+        <p class="id-modal-text" data-action="description">${data.description}</p>
+        <button type="button" class="id-button-add-favorites">
+          Add to favorites
+        </button>
+        <button type="button" class="id-button-giv-rating">
+          Give a rating
+        </button>
+      </div>
+  `;
+
+  backdropIdEl.innerHTML = markup;
 }
 
 function createMarkupExercises(array) {
