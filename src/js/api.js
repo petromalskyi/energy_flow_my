@@ -202,18 +202,18 @@ function getExercisesID(idExercise) {
     .then(data => {
       createMarkupIdModal(data);
 
-      const countYellowStar = Math.floor(data.rating);
-      const starsEl = document.querySelectorAll('.js-rating-icon');
-      // starsEl.forEach(el =>
-      //   el.setAttribute('href', '../img/symbol-defs.svg#icon-star'),
-      // );
+      // const countYellowStar = Math.floor(data.rating);
+      // const starsEl = document.querySelectorAll('.js-rating-icon');
+      // // starsEl.forEach(el =>
+      // //   el.setAttribute('href', '../img/symbol-defs.svg#icon-star'),
+      // // );
 
-      for (let i = countYellowStar; i < starsEl.length; i++) {
-        starsEl[i].setAttribute(
-          'href',
-          '.src/img/symbol-defs.svg#icon-star-passive',
-        );
-      }
+      // for (let i = countYellowStar; i < starsEl.length; i++) {
+      //   starsEl[i].setAttribute(
+      //     'href',
+      //     '.src/img/symbol-defs.svg#icon-star-passive',
+      //   );
+      // }
 
       //// const buttonOpenModalIdEl = document.querySelector('.js-second-btn');
       buttonCloseModalIdEl = document.querySelector('.js-id-modal-btn-close');
@@ -383,6 +383,13 @@ function createMarkupIdModal(data) {
   `;
 
   backdropIdEl.innerHTML = markup;
+
+  const countYellowStar = Math.floor(data.rating);
+  const starsEl = Array.from(document.querySelectorAll('.js-rating-icon'));
+
+  for (let i = countYellowStar; i < starsEl.length; i++) {
+    starsEl[i].classList.replace('js-rating-icon', 'js-rating-icon-passive');
+  }
 }
 
 function createMarkupExercises(array) {

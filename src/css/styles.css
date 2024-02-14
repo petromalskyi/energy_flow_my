@@ -744,9 +744,15 @@ body {
   line-height: 1.5;
   color: #1b1b1b;
 }
+
 .js-rating-icon {
-  fill: rgba(27, 27, 27, 0.2);
-  color: gray;
+  fill: #eea10c;
+  color: #eea10c;
+}
+
+.js-rating-icon-passive {
+  color: #c4bebe;
+  fill: #c4bebe;
 }
 
 .id-modal-line {
@@ -807,6 +813,68 @@ body {
   font-size: 14px;
   line-height: 1.29;
   color: #1b1b1b;
+}
+
+/* /////////////////// 110min */
+.min110-img {
+  /* margin-bottom: 20px; */
+  width: 100%;
+  height: 269px;
+  border-radius: 30px;
+  background-image: url(../img/rectangle-42208-1x.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+@media (min-resolution: 192dpi) {
+  .min110-img {
+    background-image: url(../img/rectangle-42208-2x.png);
+  }
+}
+
+.min110 {
+  margin-bottom: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border-radius: 30px;
+  background: #1b1b1b;
+}
+
+.min110-design {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  /* padding-top: 40px;
+  padding-bottom: 40px;
+  border-radius: 30px; */
+}
+
+.min110-icon {
+  flex-shrink: 0;
+}
+
+.min110-title {
+  margin-bottom: 2px;
+  color: #f6f6f6;
+  /* font-feature-settings: 'clig' off, 'liga' off; */
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.min110-text-first {
+  margin-left: 40px;
+  margin-bottom: 14px;
+  color: rgba(246, 246, 246, 0.6);
+  font-size: 14px;
+  line-height: 1.29;
+}
+.min110-text-second {
+  max-width: 245px;
+  margin-left: 40px;
+  color: rgba(246, 246, 246, 0.6);
+  font-size: 14px;
+  line-height: 1.29;
 }
 
 /* @import url('./footer.css'); */
