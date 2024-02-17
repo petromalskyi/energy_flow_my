@@ -202,19 +202,6 @@ function getExercisesID(idExercise) {
     .then(data => {
       createMarkupIdModal(data);
 
-      // const countYellowStar = Math.floor(data.rating);
-      // const starsEl = document.querySelectorAll('.js-rating-icon');
-      // // starsEl.forEach(el =>
-      // //   el.setAttribute('href', '../img/symbol-defs.svg#icon-star'),
-      // // );
-
-      // for (let i = countYellowStar; i < starsEl.length; i++) {
-      //   starsEl[i].setAttribute(
-      //     'href',
-      //     '.src/img/symbol-defs.svg#icon-star-passive',
-      //   );
-      // }
-
       //// const buttonOpenModalIdEl = document.querySelector('.js-second-btn');
       buttonCloseModalIdEl = document.querySelector('.js-id-modal-btn-close');
 
@@ -233,32 +220,21 @@ function getExercisesID(idExercise) {
         arrKeysStorage.push(localStorage.key(i));
       }
 
-      buttonAddFavoritesEl.addEventListener(
-        'click',
-        onSavedFavoriteLocalStorage,
-      );
-
-      // onSavedFavoriteLocalStorage();
-
-      function onSavedFavoriteLocalStorage() {
+      buttonAddFavoritesEl.addEventListener('click', () => {
         const settings = {
           name: data.name,
           bodyPart: data.bodyPart,
           calories: data.burnedCalories,
           target: data.target,
         };
-
-        if (arrKeysStorage.includes(idExercise)) {
+        if (arrKeysStorage.some(value => value === `id=${idExercise}`)) {
           alert('This exercise already is in a favourite');
         } else {
-          localStorage.setItem(idExercise, JSON.stringify(settings));
+          localStorage.setItem(`id=${idExercise}`, JSON.stringify(settings));
           alert('Exercise is successfully added to the favourite');
         }
-        buttonAddFavoritesEl.removeEventListener(
-          'click',
-          onSavedFavoriteLocalStorage,
-        );
-      }
+        // buttonAddFavoritesEl.disabled = 'false';
+      });
     })
     .catch(error => {
       alert(error.message);

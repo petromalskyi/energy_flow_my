@@ -782,6 +782,7 @@ body {
 }
 
 .id-button-add-favorites {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -796,6 +797,11 @@ body {
   font-size: 14px;
   line-height: 1.29;
   color: #f6f6f6;
+}
+
+.id-button-add-favorites:hover {
+  background-color: #5f6560;
+  border: 1px solid #5f6560;
 }
 
 .id-button-giv-rating {
