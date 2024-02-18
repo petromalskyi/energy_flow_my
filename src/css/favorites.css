@@ -93,9 +93,28 @@
   border: 1px solid #5f6560;
 } */
 
+/* .message-undefined {
+  padding-top: 28px;
+  padding-bottom: 128px;
+  text-align: center;
+  color: #1b1b1b;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.14px;
+} */
+
 .id-icon-delete {
   position: absolute;
   top: 11px;
   right: 20px;
-  fill: #fff;
+  color: transparent;
+  fill: #7e847f;
 }
+
+/* .icon-dumbbell {
+  display: block;
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  fill: #7e847f;
+} */

@@ -167,6 +167,13 @@ function getExercises() {
 
       createMarkupExercisesSecond(data.results);
 
+      const secondSearchButtonEl = document.querySelector(
+        '.js-exercises-second-search-button',
+      );
+      console.log(secondSearchButtonEl);
+      //js-exercises-second-search-button
+      //input name="search"
+
       listEl.addEventListener('click', onClickBtnSecond);
     })
     .catch(error => {
@@ -342,22 +349,23 @@ function createMarkupIdModal(data) {
             <p class="id-modal-text">Popular</p>
             <p class="id-modal-value" data-action="popular">${data.popularity}</p>
           </li>
+          <li>
+            <p class="id-modal-text">Burned Calories</p>
+            <p class="id-modal-value margin" data-action="burnedcalories">
+             ${data.burnedCalories} / ${data.time}
+            </p>
+          </li>
         </ul>
-        <p class="id-modal-text">Burned Calories</p>
-        <p class="id-modal-value margin" data-action="burnedcalories">
-          ${data.burnedCalories} / ${data.time}
-        </p>
         <div class="id-modal-line"></div>
         <p class="id-modal-text" data-action="description">${data.description}</p>
         <button type="button" class="id-button-add-favorites">
           Add to favorites
         </button>
-        <button type="button" class="id-button-giv-rating">
-          Give a rating
-        </button>
       </div>
   `;
-
+  // <button type="button" class="id-button-giv-rating">
+  //   Give a rating
+  // </button>
   backdropIdEl.innerHTML = markup;
 
   const countYellowStar = Math.floor(data.rating);
@@ -376,7 +384,7 @@ function createMarkupExercises(array) {
       (html, { name, filter, imgUrl }) =>
         html +
         `
-      <li class="exercises-item">
+      <li>
       <a class="exercises-link"  href="">
             <img
             class="exercises-image"
@@ -415,6 +423,28 @@ function createMarkupExercisesSecond(array) {
   let markup = '';
 
   if (array.length > 0) {
+    markup = `
+       <div class="exercises-second-div">
+        <input
+          class="exercises-second-search"
+          type="text"
+          name="search"
+          placeholder="Search"
+        />
+        <button class="js-exercises-second-search-button" type="button">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.25 14.25C11.5637 14.25 14.25 11.5637 14.25 8.25C14.25 4.93629 11.5637 2.25 8.25 2.25C4.93629 2.25 2.25 4.93629 2.25 8.25C2.25 11.5637 4.93629 14.25 8.25 14.25Z" stroke="#1B1B1B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15.7498 15.75L12.4873 12.4875" stroke="#1B1B1B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+        </button>
+      </div>`;
+
+    listEl.insertAdjacentHTML('beforebegin', markup);
+
+    //   //  <svg class="exercises-second-icon" width="18" height="18">
+    //   //    <use href="../img/symbol-defs.svg#icon-search"></use>
+    //   //  </svg>;
+
     markup = array.reduce(
       (html, { rating, name, burnedCalories, bodyPart, target, _id }) =>
         html +
