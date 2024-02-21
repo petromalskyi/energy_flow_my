@@ -434,7 +434,7 @@ body {
   width: 100%;
 }
 
-.exercises-second-search {
+.js-second-search-input {
   margin-bottom: 40px;
   width: 100%;
   padding: 12px 0 12px 14px;
@@ -727,14 +727,14 @@ body {
 .id-modal-position {
   width: 100%;
   position: relative;
-  padding-top: 5px;
+  padding-top: 15px;
   padding-bottom: 40px;
   background-color: #f6f6f6;
 }
 
 .js-id-modal-btn-close {
   position: absolute;
-  top: 10px;
+  top: 20px;
   right: 30px;
   z-index: 2;
   /* margin-bottom: 2px;

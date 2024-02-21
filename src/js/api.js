@@ -10,6 +10,7 @@ let currentPage = 1;
 let currentPageSecond = 1;
 let amountPageSecond = 1;
 let nameQuery = '';
+let keyword = '';
 
 // let backdropIdEl = '';
 const backdropIdEl = document.querySelector('.js-backdrop-id');
@@ -29,6 +30,7 @@ const btnEquipmentEl = document.querySelector(
 const exercisesTitleEl = document.querySelector('.js-exercises-title');
 const exercisesTextEl = document.querySelector('.js-exercises-text');
 const listEl = document.querySelector('.js-exercises-list');
+const secondSearchButtonEl = document.querySelector('.js-exercises-second-div');
 
 let filter = 'muscles';
 
@@ -46,6 +48,7 @@ function onChangeFilter(event) {
   currentPage = 1;
   exercisesTitleEl.textContent = 'Exercises';
   exercisesTextEl.textContent = '';
+  secondSearchButtonEl.innerHTML = '';
 
   getFilters(choiceFilter, currentPage);
 }
@@ -136,7 +139,12 @@ function getExercises() {
 
   // response = await axios.get(query);
   //query = `https://energyflow.b.goit.study/api/${resource}?${choiceFilter}&page=${currentPage}&limit=8`;
-  query = `https://energyflow.b.goit.study/api/${resource}?${filter}=${nameQuery}&page=${currentPageSecond}&limit=8`;
+  //query = `https://energyflow.b.goit.study/api/${resource}?${filter}=${nameQuery}&page=${currentPageSecond}&limit=8`;
+  if (keyword === '')
+    query = `https://energyflow.b.goit.study/api/${resource}?${filter}=${nameQuery}&page=${currentPageSecond}&limit=8`;
+  else {
+    query = `https://energyflow.b.goit.study/api/${resource}?${filter}=${nameQuery}&keyword=${keyword}&page=${currentPageSecond}&limit=8`;
+  }
 
   fetch(query)
     .then(response => {
@@ -167,6 +175,20 @@ function getExercises() {
 
       createMarkupExercisesSecond(data.results);
 
+      ////////////////////////search
+      const searchInputEl = document.querySelector('.js-second-search-input');
+      console.log('searchInputEl', searchInputEl);
+      const searchButtonEl = document.querySelector(
+        '.js-exercises-second-search-button',
+      );
+      console.log('searchButtonEl', searchButtonEl);
+      searchInputEl.addEventListener('input', onClickBtnSearch);
+      searchButtonEl.addEventListener('click', () => {
+        if (keyword !== '') {
+          getExercises();
+        }
+      });
+
       const secondSearchButtonEl = document.querySelector(
         '.js-exercises-second-search-button',
       );
@@ -181,12 +203,15 @@ function getExercises() {
     });
 }
 
+function onClickBtnSearch(event) {
+  keyword = event.currentTarget.value.trim();
+}
+
 function onClickBtnSecond(event) {
   const idExercise = event.target.dataset.id;
   if (!idExercise) {
     return;
   }
-
   getExercisesID(idExercise);
 }
 
@@ -426,7 +451,7 @@ function createMarkupExercisesSecond(array) {
     markup = `
        <div class="exercises-second-div">
         <input
-          class="exercises-second-search"
+          class="js-second-search-input"
           type="text"
           name="search"
           placeholder="Search"
@@ -439,7 +464,9 @@ function createMarkupExercisesSecond(array) {
         </button>
       </div>`;
 
-    listEl.insertAdjacentHTML('beforebegin', markup);
+    secondSearchButtonEl.innerHTML = markup;
+
+    // listEl.insertAdjacentHTML('beforebegin', markup);
 
     //   //  <svg class="exercises-second-icon" width="18" height="18">
     //   //    <use href="../img/symbol-defs.svg#icon-search"></use>
