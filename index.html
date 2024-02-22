@@ -20,8 +20,9 @@
   <body>
     <!-- <load ="/partials/header.html" /> -->
     <!-- <load ="./src/partials/header.html" /> -->
-    <header class="page-header">
-      <div class="container">
+    <div class="media media-container">
+      <header class="page-header container">
+        <!-- <div class="container"> -->
         <div class="header-position">
           <nav class="header-nav">
             <a href="./index.html" class="header-logo">energy.flow</a>
@@ -40,114 +41,149 @@
             <p class="header-box-text">#Diet</p>
           </div>
         </div>
-      </div>
-    </header>
+        <!-- </div> -->
+      </header>
 
-    <main>
       <!-- <load ="/partials/home.html" /> -->
-      <section class="home-section">
-        <div class="hero-design container">
-          <h1 class="hero-title">
-            Get <span class="hero-title-span">Body</span> in shape, Stay healthy
-          </h1>
-          <p class="hero-popular-tags">
-            Transform your physique and embrace a healthier lifestyle with our
-            comprehensive fitness and nutrition support.
-          </p>
-        </div>
-
-        <!-- <load ="/partials/quote.html" /> -->
-
-        <div class="quote-design container">
-          <div class="quote-box">
-            <div class="quote-box-box">
-              <svg class="icon" width="34" height="32" aria-label="running man">
-                <use href="./src/img/symbol-defs.svg#icon-icon"></use>
-              </svg>
-              <h2 class="quote-title">Quote of the day</h2>
-            </div>
-            <svg
-              class="icon"
-              width="28"
-              height="28"
-              aria-label="inverted-commas"
-            >
-              <use href="./src/img/symbol-defs.svg#icon-inverted-commas"></use>
-            </svg>
+      <div class="hero-design container">
+        <div class="hero-box">
+          <div class="hero-nav">
+            <a href="./index.html" class="page-link is-active">Home</a>
+            <a href="./favorites.html" class="page-link">Favorites</a>
           </div>
-          <p class="quote-text"></p>
-          <p class="quote-author"></p>
-        </div>
-
-        <div class="quote-img container"></div>
-
-        <div class="exercises-design container">
-          <div class="exercises-flex">
-            <h2 class="js-exercises-title">Exercises</h2>
-            <p class="js-exercises-text"></p>
-          </div>
-          <ul class="js-exercises-list-btn">
-            <li>
-              <button
-                class="exercises-btn active"
-                type="button"
-                data-action="filter=Muscles"
-                data-filter="muscles"
+          <ul class="social-links">
+            <li class="social-item">
+              <a
+                class="social-link"
+                href="https://www.facebook.com/goITclub/"
+                target="_blank"
               >
-                Muscles
-              </button>
+                <svg class="social-icon-hero">
+                  <use
+                    href="./src/img/symbol-defs.svg#icon-facebook"
+                  ></use></svg
+              ></a>
             </li>
-            <li>
-              <button
-                class="exercises-btn"
-                type="button"
-                data-action="filter=Body parts"
-                data-filter="bodypart"
+            <li class="social-item">
+              <a
+                class="social-link"
+                href=" https://www.youtube.com/c/GoIT"
+                target="_blank"
               >
-                Body parts
-              </button>
+                <svg class="social-icon-hero">
+                  <use href="./src/img/symbol-defs.svg#icon-youtube"></use></svg
+              ></a>
             </li>
-            <li>
-              <button
-                class="exercises-btn"
-                type="button"
-                data-action="filter=Equipment"
-                data-filter="equipment"
+            <li class="social-item">
+              <a
+                class="social-link"
+                href="https://www.instagram.com/goitclub/"
+                target="_blank"
               >
-                Equipment
-              </button>
+                <svg class="social-icon-hero">
+                  <use
+                    href="./src/img/symbol-defs.svg#icon-instagram"
+                  ></use></svg
+              ></a>
             </li>
           </ul>
-
-          <div class="js-exercises-second-div"></div>
-          <ul class="js-exercises-list"></ul>
-          <div class="js-exercises-countpage"></div>
-          <div class="js-exercises-second-countpage"></div>
-          <!-- <ul class="js-favorite-list"></ul> -->
         </div>
-      </section>
-
-      <div class="min110-img container"></div>
-      <div class="min110 container">
-        <div class="min110-design">
-          <svg class="min110-icon" width="20" height="20">
-            <use href="./src/img/symbol-defs.svg#icon-fluent"></use>
-          </svg>
-          <h2 class="min110-title">110 min</h2>
-        </div>
-        <p class="min110-text-first">Daily norm of sports</p>
-        <p class="min110-text-second">
-          The World Health Organization recommends at least 150 minutes of
-          moderate-intensity aerobic physical activity throughout the week for
-          adults aged 18-64. However, what happens if we adjust that number to
-          110 minutes every day?
+        <h1 class="hero-title">
+          Get <span class="hero-title-span">Body</span> in shape, Stay healthy
+        </h1>
+        <p class="hero-popular-tags">
+          Transform your physique and embrace a healthier lifestyle with our
+          comprehensive fitness and nutrition support.
         </p>
       </div>
-    </main>
+    </div>
+
+    <!-- <load ="/partials/quote.html" /> -->
+
+    <div class="quote-flex media-container">
+      <div class="quote-design container">
+        <div class="quote-box">
+          <div class="quote-box-box">
+            <svg width="34" height="32" aria-label="running man">
+              <use href="./src/img/symbol-defs.svg#icon-icon"></use>
+            </svg>
+            <h2 class="quote-title">Quote of the day</h2>
+          </div>
+          <svg class="quote-icon" aria-label="inverted-commas">
+            <use href="./src/img/symbol-defs.svg#icon-inverted-commas"></use>
+          </svg>
+        </div>
+        <p class="quote-text"></p>
+        <p class="quote-author"></p>
+      </div>
+      <div class="quote-img container"></div>
+    </div>
+    <div class="exercises-design container">
+      <div class="exercises-flex">
+        <h2 class="js-exercises-title">Exercises</h2>
+        <p class="js-exercises-text"></p>
+      </div>
+      <ul class="js-exercises-list-btn">
+        <li>
+          <button
+            class="exercises-btn active"
+            type="button"
+            data-action="filter=Muscles"
+            data-filter="muscles"
+          >
+            Muscles
+          </button>
+        </li>
+        <li>
+          <button
+            class="exercises-btn"
+            type="button"
+            data-action="filter=Body parts"
+            data-filter="bodypart"
+          >
+            Body parts
+          </button>
+        </li>
+        <li>
+          <button
+            class="exercises-btn"
+            type="button"
+            data-action="filter=Equipment"
+            data-filter="equipment"
+          >
+            Equipment
+          </button>
+        </li>
+      </ul>
+
+      <div class="js-exercises-second-div"></div>
+      <ul class="js-exercises-list"></ul>
+      <div class="js-exercises-countpage"></div>
+      <div class="js-exercises-second-countpage"></div>
+      <!-- <ul class="js-favorite-list"></ul> -->
+    </div>
+
+    <div class="min110-img container"></div>
+    <div class="min110 container">
+      <div class="min110-design">
+        <svg class="min110-icon" width="20" height="20">
+          <use href="./src/img/symbol-defs.svg#icon-fluent"></use>
+        </svg>
+        <h2 class="min110-title">110 min</h2>
+      </div>
+      <p class="min110-text-first">Daily norm of sports</p>
+      <p class="min110-text-second">
+        The World Health Organization recommends at least 150 minutes of
+        moderate-intensity aerobic physical activity throughout the week for
+        adults aged 18-64. However, what happens if we adjust that number to 110
+        minutes every day?
+      </p>
+    </div>
 
     <footer class="footer container">
-      <a href="./index.html" class="header-logo inverse">energy.flow</a>
-
+      <div class="footer-div">
+        <a href="./index.html" class="header-logo inverse">energy.flow</a>
+      </div>
       <!-- <load ="/partials/social-links.html" /> -->
       <ul class="social-links">
         <li class="social-item">
@@ -263,6 +299,7 @@
           <use class="id-modal-icon" href="/img/symbol-defs.svg#icon-x"></use>
         </svg> -->
     <div class="js-backdrop-id container is-hidden"></div>
+    <!-- <div class="js-backdrop-rating container is-hidden"></div> -->
 
     <script type="module" src="./src/js/modal.js"></script>
     <script type="module" src="./src/js/home.js"></script>

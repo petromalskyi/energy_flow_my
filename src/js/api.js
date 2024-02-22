@@ -125,6 +125,7 @@ function onClickExercises(event) {
   exercisesTitleEl.textContent = `Exercises / `;
   let nameQueryFirstUpper = nameQuery[0].toUpperCase() + nameQuery.slice(1);
   exercisesTextEl.textContent = `${nameQueryFirstUpper}`;
+  keyword = '';
   getExercises();
 }
 
@@ -143,7 +144,7 @@ function getExercises() {
   if (keyword === '')
     query = `https://energyflow.b.goit.study/api/${resource}?${filter}=${nameQuery}&page=${currentPageSecond}&limit=8`;
   else {
-    query = `https://energyflow.b.goit.study/api/${resource}?${filter}=${nameQuery}&keyword=${keyword}&page=${currentPageSecond}&limit=8`;
+    query = `https://energyflow.b.goit.study/api/${resource}?${filter}=${nameQuery}&keyword=${keyword}&limit=8`;
   }
 
   fetch(query)
@@ -177,12 +178,14 @@ function getExercises() {
 
       ////////////////////////search
       const searchInputEl = document.querySelector('.js-second-search-input');
-      console.log('searchInputEl', searchInputEl);
       const searchButtonEl = document.querySelector(
         '.js-exercises-second-search-button',
       );
-      console.log('searchButtonEl', searchButtonEl);
-      searchInputEl.addEventListener('input', onClickBtnSearch);
+
+      searchInputEl.addEventListener('input', event => {
+        keyword = event.currentTarget.value.trim();
+      });
+
       searchButtonEl.addEventListener('click', () => {
         if (keyword !== '') {
           getExercises();
@@ -192,19 +195,12 @@ function getExercises() {
       const secondSearchButtonEl = document.querySelector(
         '.js-exercises-second-search-button',
       );
-      console.log(secondSearchButtonEl);
-      //js-exercises-second-search-button
-      //input name="search"
 
       listEl.addEventListener('click', onClickBtnSecond);
     })
     .catch(error => {
       alert(error.message);
     });
-}
-
-function onClickBtnSearch(event) {
-  keyword = event.currentTarget.value.trim();
 }
 
 function onClickBtnSecond(event) {
@@ -217,11 +213,7 @@ function onClickBtnSecond(event) {
 
 ///////////333333333333333333////////////////////////
 function getExercisesID(idExercise) {
-  // axios.defaults.baseURL = 'https://energyflow.b.goit.study/api/';
-
   let resource = 'exercises';
-  // query = `${resource}/${idExercise}`;
-  //  response = await axios.get(query);
   query = `https://energyflow.b.goit.study/api/${resource}/${idExercise}`;
 
   fetch(query)
@@ -234,14 +226,14 @@ function getExercisesID(idExercise) {
     .then(data => {
       createMarkupIdModal(data);
 
-      //// const buttonOpenModalIdEl = document.querySelector('.js-second-btn');
       buttonCloseModalIdEl = document.querySelector('.js-id-modal-btn-close');
 
       backdropIdEl.classList.toggle('is-hidden');
 
-      buttonCloseModalIdEl.addEventListener('click', onModalIdCLose);
+      buttonCloseModalIdEl.addEventListener('click', () => {
+        backdropIdEl.classList.toggle('is-hidden');
+      });
 
-      ////////////////////////
       const buttonAddFavoritesEl = document.querySelector(
         '.id-button-add-favorites',
       );
@@ -273,15 +265,14 @@ function getExercisesID(idExercise) {
     });
 }
 
-function onModalIdCLose() {
-  backdropIdEl.classList.toggle('is-hidden');
-}
+// function onModalIdCLose() {
+//   backdropIdEl.classList.toggle('is-hidden');
+// }
 
 function onChangeActivePage(event) {
   for (const el of amountPageEl.children) {
     el.classList.remove('active');
   }
-
   event.target.classList.add('active');
   currentPage = Number(event.target.dataset.action);
   getFilters(choiceFilter, currentPage);
@@ -291,15 +282,11 @@ function onChangeActivePageSecond(event) {
   const amountPageSecondEl = document.querySelector(
     '.js-exercises-second-countpage',
   );
-  console.log(amountPageSecondEl);
-
   for (const el of amountPageSecondEl.children) {
     el.classList.remove('active');
   }
-
   event.target.classList.add('active');
   currentPageSecond = Number(event.target.dataset.action);
-  console.log('currentPageSecond', currentPageSecond);
   getExercises();
 }
 
@@ -386,11 +373,12 @@ function createMarkupIdModal(data) {
         <button type="button" class="id-button-add-favorites">
           Add to favorites
         </button>
+        <button type="button" class="id-button-giv-rating">
+          Give a rating
+        </button>
       </div>
   `;
-  // <button type="button" class="id-button-giv-rating">
-  //   Give a rating
-  // </button>
+
   backdropIdEl.innerHTML = markup;
 
   const countYellowStar = Math.floor(data.rating);
