@@ -299,6 +299,7 @@ function createMarkupIdModal(data) {
           </svg>
         </button>
         <img class="id-modal-img" src="${data.gifUrl}" alt="side hip abduction" />
+        <div>
         <h2 class="id-modal-title">${data.name}</h2>
         <div class="id-modal-line"></div>
         <ul class="id-modal-list-rating">
@@ -370,15 +371,41 @@ function createMarkupIdModal(data) {
         </ul>
         <div class="id-modal-line"></div>
         <p class="id-modal-text" data-action="description">${data.description}</p>
+        <div class="id-button-media">
         <button type="button" class="id-button-add-favorites">
           Add to favorites
+           <svg width="18" height="18">
+              <use
+                class="id-icon-heart"
+                href="./src/img/symbol-defs.svg#icon-heart"
+              ></use>
+            </svg>
         </button>
+          
         <button type="button" class="id-button-giv-rating">
           Give a rating
         </button>
+        </div>
+        </div>
       </div>
   `;
-
+  {
+    /* <svg
+  width="18"
+  height="18"
+  viewBox="0 0 18 18"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M15.6306 3.45753C15.2475 3.07428 14.7927 2.77026 14.2921 2.56284C13.7915 2.35542 13.2549 2.24866 12.7131 2.24866C12.1712 2.24866 11.6347 2.35542 11.1341 2.56284C10.6335 2.77026 10.1786 3.07428 9.79558 3.45753L9.00058 4.25253L8.20558 3.45753C7.43181 2.68376 6.38235 2.24906 5.28808 2.24906C4.1938 2.24906 3.14435 2.68376 2.37058 3.45753C1.59681 4.2313 1.16211 5.28075 1.16211 6.37503C1.16211 7.4693 1.59681 8.51876 2.37058 9.29253L3.16558 10.0875L9.00058 15.9225L14.8356 10.0875L15.6306 9.29253C16.0138 8.90946 16.3178 8.45464 16.5253 7.95404C16.7327 7.45345 16.8394 6.91689 16.8394 6.37503C16.8394 5.83316 16.7327 5.2966 16.5253 4.79601C16.3178 4.29542 16.0138 3.84059 15.6306 3.45753Z"
+    stroke="#F6F6F6"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>; */
+  }
   backdropIdEl.innerHTML = markup;
 
   const countYellowStar = Math.floor(data.rating);
@@ -437,24 +464,22 @@ function createMarkupExercisesSecond(array) {
 
   if (array.length > 0) {
     markup = `
-       <div class="exercises-second-div">
-        <input
-          class="js-second-search-input"
-          type="text"
-          name="search"
-          placeholder="Search"
-        />
-        <button class="js-exercises-second-search-button" type="button">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M8.25 14.25C11.5637 14.25 14.25 11.5637 14.25 8.25C14.25 4.93629 11.5637 2.25 8.25 2.25C4.93629 2.25 2.25 4.93629 2.25 8.25C2.25 11.5637 4.93629 14.25 8.25 14.25Z" stroke="#1B1B1B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M15.7498 15.75L12.4873 12.4875" stroke="#1B1B1B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-        </button>
-      </div>`;
+           <div class="exercises-second-div">
+            <input
+              class="js-second-search-input"
+              type="text"
+              name="search"
+              placeholder="Search"
+            />
+            <button class="js-exercises-second-search-button" type="button">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8.25 14.25C11.5637 14.25 14.25 11.5637 14.25 8.25C14.25 4.93629 11.5637 2.25 8.25 2.25C4.93629 2.25 2.25 4.93629 2.25 8.25C2.25 11.5637 4.93629 14.25 8.25 14.25Z" stroke="#1B1B1B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M15.7498 15.75L12.4873 12.4875" stroke="#1B1B1B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+            </button>
+          </div>`;
 
     secondSearchButtonEl.innerHTML = markup;
-
-    // listEl.insertAdjacentHTML('beforebegin', markup);
 
     //   //  <svg class="exercises-second-icon" width="18" height="18">
     //   //    <use href="../img/symbol-defs.svg#icon-search"></use>
