@@ -67,6 +67,8 @@ body {
   }
   .media {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
@@ -215,12 +217,6 @@ body {
 }
 
 /* @import url('./home.css'); */
-/* .home-section {
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20px;
-  max-width: 365px;
-} */
 
 .hero-design {
   margin-bottom: 20px;
@@ -251,7 +247,6 @@ body {
 
 .hero-box {
   display: flex;
-  /* gap: 74px; */
   justify-content: space-between;
   align-items: center;
 }
@@ -817,7 +812,6 @@ body {
 
 /* /////////////////// 110min */
 .min110-img {
-  /* margin-bottom: 20px; */
   width: 100%;
   height: 269px;
   border-radius: 30px;
@@ -844,9 +838,6 @@ body {
   display: flex;
   align-items: center;
   gap: 18px;
-  /* padding-top: 40px;
-  padding-bottom: 40px;
-  border-radius: 30px; */
 }
 
 .min110-icon {
@@ -856,7 +847,6 @@ body {
 .min110-title {
   margin-bottom: 2px;
   color: #f6f6f6;
-  /* font-feature-settings: 'clig' off, 'liga' off; */
   font-size: 20px;
   font-weight: 500;
   line-height: 1.4;
@@ -875,6 +865,51 @@ body {
   color: rgba(246, 246, 246, 0.6);
   font-size: 14px;
   line-height: 1.29;
+}
+
+@media (min-width: 736px) {
+  .min110-img {
+    height: 302px;
+    background-image: url(../img/rectangle-42207-1x.png);
+  }
+  @media (min-resolution: 192dpi) {
+    .min110-img {
+      background-image: url(../img/rectangle-42207-2x.png);
+    }
+  }
+  .min110 {
+    height: 302px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .min110-title {
+    font-size: 32px;
+  }
+
+  .min110-text-second {
+    max-width: 526px;
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1408px) {
+  .media-min110 {
+    display: flex;
+    margin: 0 auto;
+    max-width: 1408px;
+    /* padding: 0; */
+  }
+  .min110-img {
+    margin-bottom: 20px;
+    width: 704px;
+  }
+  .min110-img .container {
+    padding-right: 0;
+  }
+  .min110 .container {
+    padding-left: 0;
+  }
 }
 
 /* МОДАЛЬНЕ ВІКНО ID  //////////////////////// */
@@ -1176,73 +1211,12 @@ body {
   background-color: rgb(27, 27, 27, 0.6);
 } */
 
-/* /////////////////// 110min */
-.min110-img {
-  /* margin-bottom: 20px; */
-  width: 100%;
-  height: 269px;
-  border-radius: 30px;
-  background-image: url(../img/rectangle-42208-1x.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-@media (min-resolution: 192dpi) {
-  .min110-img {
-    background-image: url(../img/rectangle-42208-2x.png);
-  }
-}
-
-.min110 {
-  margin-bottom: 20px;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  border-radius: 30px;
-  background: #1b1b1b;
-}
-
-.min110-design {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  /* padding-top: 40px;
-  padding-bottom: 40px;
-  border-radius: 30px; */
-}
-
-.min110-icon {
-  flex-shrink: 0;
-}
-
-.min110-title {
-  margin-bottom: 2px;
-  color: #f6f6f6;
-  /* font-feature-settings: 'clig' off, 'liga' off; */
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1.4;
-}
-
-.min110-text-first {
-  margin-left: 40px;
-  margin-bottom: 14px;
-  color: rgba(246, 246, 246, 0.6);
-  font-size: 14px;
-  line-height: 1.29;
-}
-.min110-text-second {
-  max-width: 245px;
-  margin-left: 40px;
-  color: rgba(246, 246, 246, 0.6);
-  font-size: 14px;
-  line-height: 1.29;
-}
-
 /* @import url('./footer.css'); */
 .footer {
   padding-top: 40px;
   padding-bottom: 20px;
   width: 100%;
+  border-radius: 30px;
   /* height: 471px; */
 
   /* linear-gradient(

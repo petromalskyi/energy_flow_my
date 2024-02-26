@@ -3,22 +3,31 @@
 }
 
 @media (min-width: 736px) {
-  /* .container {
-    max-width: 736px;
-    padding-left: 48px;
-    padding-right: 48px;
-  } */
-  .media-container {
-    margin: 0 auto;
-    max-width: 736px;
-    padding: 0;
-  }
-
   .media {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+  }
+
+  .header-position {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .hero-box {
+    display: flex;
+    gap: 60px;
+    /* justify-content: space-between; */
+    align-items: center;
+  }
+}
+
+@media (min-width: 1408px) {
+  .hero-box {
+    gap: 390px;
   }
 }
 
@@ -61,6 +70,38 @@
   padding: 0;
 }
 
+@media (min-width: 736px) {
+  .js-favorite-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    flex-basis: calc((100% - 14px) / 2);
+  }
+  .second-item {
+    width: 313px;
+  }
+}
+.min110-img-favorites {
+  width: 100%;
+  height: 302px;
+  border-radius: 30px;
+  background-image: url(../img/rectangle-42210-1x.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+@media (min-resolution: 192dpi) {
+  .min110-img {
+    background-image: url(../img/rectangle-42210-2x.png);
+  }
+}
+
+@media (max-width: 735px) {
+  .min110-img-favorites {
+    display: none;
+  }
+}
+
 .min110-design-favorites {
   margin-top: 0;
   margin-bottom: 20px;
@@ -89,6 +130,38 @@
   /* color: #1b1b1b; */
   font-size: 14px;
   line-height: 1.29;
+}
+
+@media (min-width: 736px) {
+  .min110-img {
+    width: 368px;
+    height: 302px;
+    background-image: url(../img/rectangle-42210-1x.png);
+  }
+  @media (min-resolution: 192dpi) {
+    .min110-img {
+      background-image: url(../img/rectangle-422-2x.png);
+    }
+  }
+  .min110-design-favorites {
+    width: 368px;
+    height: 302px;
+    padding: 105px 118px;
+  }
+  /* .min110 {
+    height: 302px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .min110-title {
+    font-size: 32px;
+  }
+
+  .min110-text-second {
+    max-width: 526px;
+    font-size: 16px;
+  } */
 }
 
 /* .id-button-delete-favorites {
