@@ -31,6 +31,15 @@
   }
 }
 
+@media (min-width: 736px) {
+  .quote-img {
+    display: none;
+  }
+  .header-nav {
+    margin-bottom: 0;
+  }
+}
+
 .favorites-section {
   width: 100%;
   padding-top: 40px;
