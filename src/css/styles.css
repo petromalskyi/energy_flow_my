@@ -438,6 +438,9 @@ body {
     margin-bottom: 25px;
     font-size: 16px;
   }
+  .quote-img {
+    display: none;
+  }
 }
 
 @media (min-width: 1408px) {
@@ -894,6 +897,9 @@ body {
 }
 
 @media (min-width: 1408px) {
+  .media-1408 {
+    display: flex;
+  }
   .media-min110 {
     display: flex;
     margin: 0 auto;

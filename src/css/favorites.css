@@ -133,7 +133,7 @@
 }
 
 @media (min-width: 736px) {
-  .min110-img {
+  .min110-img-favorites {
     width: 368px;
     height: 302px;
     background-image: url(../img/rectangle-42210-1x.png);
@@ -147,21 +147,14 @@
     width: 368px;
     height: 302px;
     padding: 105px 118px;
+    margin-bottom: 0;
   }
-  /* .min110 {
-    height: 302px;
-    padding-top: 64px;
-    padding-bottom: 64px;
-  }
+}
 
-  .min110-title {
-    font-size: 32px;
+@media (min-width: 1408px) {
+  .min110-img {
+    width: 352px;
   }
-
-  .min110-text-second {
-    max-width: 526px;
-    font-size: 16px;
-  } */
 }
 
 /* .id-button-delete-favorites {
