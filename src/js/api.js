@@ -59,7 +59,11 @@ const amountPageSecondEl = document.querySelector(
   '.js-exercises-second-countpage',
 );
 
+const countMediaWidth = window.matchMedia('(min-width: 736px)');
+
 let query = '';
+
+const limitMedia = countMediaWidth.matches ? 12 : 8;
 
 getFilters(choiceFilter, currentPage);
 
@@ -79,7 +83,7 @@ function getFilters(choiceFilter = 'filter=Muscles', currentPage = 1) {
   currentPageSecond = 1;
   amountPageSecond = 1;
 
-  query = `https://energyflow.b.goit.study/api/${resource}?${choiceFilter}&page=${currentPage}&limit=8`;
+  query = `https://energyflow.b.goit.study/api/${resource}?${choiceFilter}&page=${currentPage}&limit=${limitMedia}`;
 
   //// response = await axios.get(`${resource}?${choiceFilter}`, { params });
   // response = await axios.get(query);
@@ -142,9 +146,9 @@ function getExercises() {
   //query = `https://energyflow.b.goit.study/api/${resource}?${choiceFilter}&page=${currentPage}&limit=8`;
   //query = `https://energyflow.b.goit.study/api/${resource}?${filter}=${nameQuery}&page=${currentPageSecond}&limit=8`;
   if (keyword === '')
-    query = `https://energyflow.b.goit.study/api/${resource}?${filter}=${nameQuery}&page=${currentPageSecond}&limit=8`;
+    query = `https://energyflow.b.goit.study/api/${resource}?${filter}=${nameQuery}&page=${currentPageSecond}&limit=${limitMedia}`;
   else {
-    query = `https://energyflow.b.goit.study/api/${resource}?${filter}=${nameQuery}&keyword=${keyword}&limit=8`;
+    query = `https://energyflow.b.goit.study/api/${resource}?${filter}=${nameQuery}&keyword=${keyword}&limit=${limitMedia}`;
   }
 
   fetch(query)
