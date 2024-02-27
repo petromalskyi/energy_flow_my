@@ -192,6 +192,7 @@ function getExercises() {
 
       searchButtonEl.addEventListener('click', () => {
         if (keyword !== '') {
+          currentPageSecond = 1;
           getExercises();
         }
       });

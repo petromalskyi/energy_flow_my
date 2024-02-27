@@ -29,6 +29,9 @@
   .hero-box {
     gap: 390px;
   }
+  .media-1408-favorit {
+    display: flex;
+  }
 }
 
 @media (min-width: 736px) {
@@ -38,10 +41,6 @@
   .header-nav {
     margin-bottom: 0;
   }
-}
-
-.media-1408-favorit {
-  display: flex;
 }
 
 .favorites-section {
