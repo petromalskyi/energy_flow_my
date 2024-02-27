@@ -448,9 +448,10 @@ body {
   }
   .quote-design {
     width: 704px;
+    /* flex-shrink: 0; */
     height: 302px;
-
-    padding: 64px 80px;
+    padding-top: 64px;
+    padding-bottom: 80px;
   }
   .quote-box-box {
     /* padding-top: 64px 80px; */
@@ -1081,10 +1082,10 @@ body {
     gap: 5px;
     margin-top: 40px;
   }
-  .id-button-add-favorites {
+  /* .id-button-add-favorites {
     width: 174px;
     margin: 0;
-  }
+  } */
   .id-button-giv-rating {
     width: 111px;
     height: 42px;
@@ -1216,6 +1217,7 @@ body {
   background-color: rgb(27, 27, 27, 0.6);
 } */
 
+/* ///////  FOOTER   ///////// */
 /* @import url('./footer.css'); */
 .footer {
   padding-top: 40px;
@@ -1358,10 +1360,28 @@ body {
   }
   .footer-form-button {
     font-size: 16px;
+    margin-bottom: 60px;
   }
   .media-down {
     display: flex;
     gap: 32px;
     justify-content: center;
+  }
+}
+
+@media (min-width: 1408px) {
+  .media-footer {
+    margin-bottom: 80px;
+  }
+  .media-1408 {
+    display: flex;
+    gap: 160px;
+  }
+  .footer-slogan {
+    width: 360px;
+    font-size: 64px;
+  }
+  .footer-slogan-span {
+    font-size: 64px;
   }
 }

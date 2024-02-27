@@ -385,15 +385,15 @@ function createMarkupIdModal(data) {
               ></use>
             </svg>
         </button>
-          
-        <button type="button" class="id-button-giv-rating">
-          Give a rating
-        </button>
+ 
         </div>
         </div>
       </div>
   `;
   {
+    //  <button type="button" class="id-button-giv-rating">
+    //    Give a rating
+    //  </button>;
     /* <svg
   width="18"
   height="18"

@@ -148,6 +148,109 @@ function onFavoriteClickDelete(event) {
   }
 }
 
+// function createMarkupIdModal(data) {
+//   let markup = `
+//         <div class="id-modal-position container">
+//         <button type="button" class="js-id-modal-btn-close">
+//           <svg  width="24" height="24">
+//             <use  href="./src/img/symbol-defs.svg#icon-x-black"></use>
+//           </svg>
+//         </button>
+//         <img class="id-modal-img" src="${data.gifUrl}" alt="side hip abduction" />
+//         <h2 class="id-modal-title">${data.name}</h2>
+//         <div class="id-modal-line"></div>
+//         <ul class="id-modal-list-rating">
+//           <li class="rating-item">${data.rating}</li>
+//           <li>
+//             <svg width="18" height="18">
+//               <use
+//                 class="js-rating-icon"
+//                 href="./src/img/symbol-defs.svg#icon-star"
+//               ></use>
+//             </svg>
+//           </li>
+//           <li>
+//             <svg width="18" height="18">
+//               <use
+//                 class="js-rating-icon"
+//                 href="./src/img/symbol-defs.svg#icon-star"
+//               ></use>
+//             </svg>
+//           </li>
+//           <li>
+//             <svg width="18" height="18">
+//               <use
+//                 class="js-rating-icon"
+//                 href="./src/img/symbol-defs.svg#icon-star"
+//               ></use>
+//             </svg>
+//           </li>
+//           <li>
+//             <svg width="18" height="18">
+//               <use
+//                 class="js-rating-icon"
+//                 href="./src/img/symbol-defs.svg#icon-star"
+//               ></use>
+//             </svg>
+//           </li>
+//           <li>
+//             <svg width="18" height="18">
+//               <use
+//                 class="js-rating-icon"
+//                 href="./src/img/symbol-defs.svg#icon-star"
+//               ></use>
+//             </svg>
+//           </li>
+//         </ul>
+//         <ul class="id-modal-list">
+//           <li>
+//             <p class="id-modal-text">Target</p>
+//             <p class="id-modal-value" data-action="target">${data.target}</p>
+//           </li>
+//           <li>
+//             <p class="id-modal-text">Body Part</p>
+//             <p class="id-modal-value" data-action="waist">${data.bodyPart}</p>
+//           </li>
+//           <li>
+//             <p class="id-modal-text">Equipment</p>
+//             <p class="id-modal-value" data-action="equipment">${data.equipment}</p>
+//           </li>
+//           <li>
+//             <p class="id-modal-text">Popular</p>
+//             <p class="id-modal-value" data-action="popular">${data.popularity}</p>
+//           </li>
+//           <li>
+//             <p class="id-modal-text">Burned Calories</p>
+//             <p class="id-modal-value margin" data-action="burnedcalories">
+//              ${data.burnedCalories} / ${data.time}
+//             </p>
+//           </li>
+//         </ul>
+//         <div class="id-modal-line"></div>
+//         <p class="id-modal-text" data-action="description">${data.description}</p>
+//         <button type="button" class="id-button-add-favorites">
+//           Remove from favorites
+//  <svg class="id-icon-delete" width="20" height="20" viewBox="0 0 20 20">
+// <path d="M13.3333 4.99999V4.33332C13.3333 3.3999 13.3333 2.93319 13.1517 2.57667C12.9919 2.26307 12.7369 2.0081 12.4233 1.84831C12.0668 1.66666 11.6001 1.66666 10.6667 1.66666H9.33333C8.39991 1.66666 7.9332 1.66666 7.57668 1.84831C7.26308 2.0081 7.00811 2.26307 6.84832 2.57667C6.66667 2.93319 6.66667 3.3999 6.66667 4.33332V4.99999M8.33333 9.58332V13.75M11.6667 9.58332V13.75M2.5 4.99999H17.5M15.8333 4.99999V14.3333C15.8333 15.7335 15.8333 16.4335 15.5608 16.9683C15.3212 17.4387 14.9387 17.8212 14.4683 18.0608C13.9335 18.3333 13.2335 18.3333 11.8333 18.3333H8.16667C6.76654 18.3333 6.06647 18.3333 5.53169 18.0608C5.06129 17.8212 4.67883 17.4387 4.43915 16.9683C4.16667 16.4335 4.16667 15.7335 4.16667 14.3333V4.99999" stroke="#F6F6F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+// </svg>
+//         </button>
+//       </div>
+//   `;
+
+//   //<button type="button" class="id-button-giv-rating">
+//   //          Give a rating
+//   // </button>
+
+//   backdropIdEl.innerHTML = markup;
+
+//   const countYellowStar = Math.floor(data.rating);
+//   const starsEl = Array.from(document.querySelectorAll('.js-rating-icon'));
+
+//   for (let i = countYellowStar; i < starsEl.length; i++) {
+//     starsEl[i].classList.replace('js-rating-icon', 'js-rating-icon-passive');
+//   }
+// }
+
 function createMarkupIdModal(data) {
   let markup = `
         <div class="id-modal-position container">
@@ -157,6 +260,7 @@ function createMarkupIdModal(data) {
           </svg>
         </button>
         <img class="id-modal-img" src="${data.gifUrl}" alt="side hip abduction" />
+        <div>
         <h2 class="id-modal-title">${data.name}</h2>
         <div class="id-modal-line"></div>
         <ul class="id-modal-list-rating">
@@ -228,19 +332,37 @@ function createMarkupIdModal(data) {
         </ul>
         <div class="id-modal-line"></div>
         <p class="id-modal-text" data-action="description">${data.description}</p>
+        <div class="id-button-media">
         <button type="button" class="id-button-add-favorites">
-          Remove from favorites
- <svg class="id-icon-delete" width="20" height="20" viewBox="0 0 20 20">
+           Remove from favorites
+<svg class="id-icon-delete" width="20" height="20" viewBox="0 0 20 20">
 <path d="M13.3333 4.99999V4.33332C13.3333 3.3999 13.3333 2.93319 13.1517 2.57667C12.9919 2.26307 12.7369 2.0081 12.4233 1.84831C12.0668 1.66666 11.6001 1.66666 10.6667 1.66666H9.33333C8.39991 1.66666 7.9332 1.66666 7.57668 1.84831C7.26308 2.0081 7.00811 2.26307 6.84832 2.57667C6.66667 2.93319 6.66667 3.3999 6.66667 4.33332V4.99999M8.33333 9.58332V13.75M11.6667 9.58332V13.75M2.5 4.99999H17.5M15.8333 4.99999V14.3333C15.8333 15.7335 15.8333 16.4335 15.5608 16.9683C15.3212 17.4387 14.9387 17.8212 14.4683 18.0608C13.9335 18.3333 13.2335 18.3333 11.8333 18.3333H8.16667C6.76654 18.3333 6.06647 18.3333 5.53169 18.0608C5.06129 17.8212 4.67883 17.4387 4.43915 16.9683C4.16667 16.4335 4.16667 15.7335 4.16667 14.3333V4.99999" stroke="#F6F6F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
         </button>
+        </div>
+        </div>
       </div>
   `;
-
-  //<button type="button" class="id-button-giv-rating">
-  //          Give a rating
-  // </button>
-
+  {
+    //  <button type="button" class="id-button-giv-rating">
+    //    Give a rating
+    //  </button>;
+    /* <svg
+  width="18"
+  height="18"
+  viewBox="0 0 18 18"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M15.6306 3.45753C15.2475 3.07428 14.7927 2.77026 14.2921 2.56284C13.7915 2.35542 13.2549 2.24866 12.7131 2.24866C12.1712 2.24866 11.6347 2.35542 11.1341 2.56284C10.6335 2.77026 10.1786 3.07428 9.79558 3.45753L9.00058 4.25253L8.20558 3.45753C7.43181 2.68376 6.38235 2.24906 5.28808 2.24906C4.1938 2.24906 3.14435 2.68376 2.37058 3.45753C1.59681 4.2313 1.16211 5.28075 1.16211 6.37503C1.16211 7.4693 1.59681 8.51876 2.37058 9.29253L3.16558 10.0875L9.00058 15.9225L14.8356 10.0875L15.6306 9.29253C16.0138 8.90946 16.3178 8.45464 16.5253 7.95404C16.7327 7.45345 16.8394 6.91689 16.8394 6.37503C16.8394 5.83316 16.7327 5.2966 16.5253 4.79601C16.3178 4.29542 16.0138 3.84059 15.6306 3.45753Z"
+    stroke="#F6F6F6"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>; */
+  }
   backdropIdEl.innerHTML = markup;
 
   const countYellowStar = Math.floor(data.rating);

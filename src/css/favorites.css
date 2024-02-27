@@ -40,6 +40,10 @@
   }
 }
 
+.media-1408-favorit {
+  display: flex;
+}
+
 .favorites-section {
   width: 100%;
   padding-top: 40px;
