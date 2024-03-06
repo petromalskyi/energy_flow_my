@@ -49,6 +49,7 @@ function onChangeFilter(event) {
   exercisesTitleEl.textContent = 'Exercises';
   exercisesTextEl.textContent = '';
   secondSearchButtonEl.innerHTML = '';
+  // keyword = '';
 
   getFilters(choiceFilter, currentPage);
 }
@@ -148,7 +149,7 @@ function getExercises() {
   if (keyword === '')
     query = `https://energyflow.b.goit.study/api/${resource}?${filter}=${nameQuery}&page=${currentPageSecond}&limit=${limitMedia}`;
   else {
-    query = `https://energyflow.b.goit.study/api/${resource}?${filter}=${nameQuery}&keyword=${keyword}&limit=${limitMedia}`;
+    query = `https://energyflow.b.goit.study/api/${resource}?${filter}=${nameQuery}&keyword=${keyword}&page=${currentPageSecond}&limit=${limitMedia}`;
   }
 
   fetch(query)
@@ -193,13 +194,17 @@ function getExercises() {
       searchButtonEl.addEventListener('click', () => {
         if (keyword !== '') {
           currentPageSecond = 1;
+          amountPageSecondEl.removeEventListener(
+            'click',
+            onChangeActivePageSecond,
+          );
           getExercises();
         }
       });
 
-      const secondSearchButtonEl = document.querySelector(
-        '.js-exercises-second-search-button',
-      );
+      // const secondSearchButtonEl = document.querySelector(
+      //   '.js-exercises-second-search-button',
+      // );
 
       listEl.addEventListener('click', onClickBtnSecond);
     })
